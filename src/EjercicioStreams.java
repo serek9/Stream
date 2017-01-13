@@ -1,4 +1,8 @@
+import sun.nio.cs.ext.JIS_X_0212;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EjercicioStreams {
     public static void main(String[] args) {
@@ -15,11 +19,19 @@ public class EjercicioStreams {
         Jugador j23 = new Jugador("Kim", LocalDate.of(1996,8,8), 21, B);
         Jugador j24 = new Jugador("Obiol", LocalDate.of(1996,8,8), 12, B);
 
-//        2.2	Devolver con una lista  todos los jugadores que hayan obtenido más de 500 canastas.
+        List<Jugador> lista = new ArrayList<Jugador>();
+        lista.add(j11); lista.add(j12); lista.add(j13); lista.add(j14);
+        lista.add(j21); lista.add(j22); lista.add(j23); lista.add(j24);
 
+//        2.2	Devolver con una lista  todos los jugadores que hayan obtenido más de 500 canastas.
+        lista.stream()
+                .filter(jugador -> jugador.getNumCanastas() > 500)
+                .forEach(System.out::println);
 
 //        2.3	Devolver con una lista  todos los jugadores que hayan obtenido entre 200 y 500 canastas.
-
+        lista.stream()
+                .filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500)
+                .forEach(System.out::println);
 
 //        2.4	Devolver en una lista exclusivamente los nombres de los jugadores que satisfacen  los requisitos del 2.3
 
