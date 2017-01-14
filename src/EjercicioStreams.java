@@ -2,6 +2,7 @@ import sun.nio.cs.ext.JIS_X_0212;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class EjercicioStreams {
@@ -34,22 +35,27 @@ public class EjercicioStreams {
                 .forEach(System.out::println);
 
 //        2.4	Devolver en una lista exclusivamente los nombres de los jugadores que satisfacen  los requisitos del 2.3
-
+        lista.stream()
+                .filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500)
+                .map(Jugador::getNombre)
+                .forEach(System.out::println);
 
 //        2.5	Devolver con una lista todos los jugadores ordenados por la fecha de nacimiento.
-
+        lista.stream()
+                .sorted(Comparator.comparing(Jugador::getFechaNacimiento))
+                .forEach(System.out::println);
 
 //        2.6	Devolver con una lista todos los jugadores ordenados por número de canastas.
-
+        lista.stream().sorted(Comparator.comparing(Jugador::getNumCanastas)).forEach(System.out::println);
 
 //        2.7	Devolver con una lista con los cinco jugadores que hayan realizado más canastas.
-
+        lista.stream().sorted(Comparator.comparing(Jugador::getNumCanastas)).limit(5).forEach(System.out::println);
 
 //        2.8	Devolver con una lista todos los jugadores que satisfacen el punto 2.3 ordenados por la fecha de nacimiento de manera descendente.
-
+        lista.stream().filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500).sorted(Comparator.comparing(Jugador::getFechaNacimiento)).forEach(System.out::println);
 
 //        2.9	Devolver con una lista todos los jugadores que satisfacen el filtro del punto 1.3 ordenados, en primer lugar por número de canastas y en segundo lugar (si tienen el mismo número de canastas) por la fecha de nacimiento.
-
+        lista.stream().filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500).sorted(Comparator.comparing(Jugador::getNumCanastas).thenComparing(Jugador::getFechaNacimiento)).forEach(System.out::println);
 
 //        2.10 Devolver el jugador que ha realizado el mínimo número de canastas.
 
