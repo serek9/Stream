@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EjercicioStreams {
     public static void main(String[] args) {
@@ -58,25 +59,25 @@ public class EjercicioStreams {
         lista.stream().filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500).sorted(Comparator.comparing(Jugador::getNumCanastas).thenComparing(Jugador::getFechaNacimiento)).forEach(System.out::println);
 
 //        2.10 Devolver el jugador que ha realizado el mínimo número de canastas.
-
+        System.out.println(lista.stream().reduce((x,y) -> x.getNumCanastas() < y.getNumCanastas() ? x : y));
 
 //        2.11 Devolver el jugador que ha realizado el máximo número de canastas.
-
+        System.out.println(lista.stream().reduce((x,y) -> x.getNumCanastas() > y.getNumCanastas() ? x : y));
 
 //        2.12 Devolver la media de canastas de todos los jugadores.
-
+        System.out.println(lista.stream().collect(Collectors.averagingInt(jugador -> jugador.getNumCanastas())));
 
 //        2.13 Devolver con una lista todos los jugadores que pertenezcan a equipos cuya localidad sea Barcelona.
-
+        lista.stream().filter(jugador -> jugador.getEquipo().getLocalidad().equalsIgnoreCase("barcelona")).forEach(System.out::println);
 
 //        2.14 Devolver con un boolean si hay algún jugador que ha conseguido más de 4.000 canastas.
-
+        System.out.println(lista.stream().anyMatch(jugador -> jugador.getNumCanastas() > 4000));
 
 //        2.15 Devolver con un boolean si todos los jugadores han conseguido más de 50 canastas.
-
+        System.out.println(lista.stream().allMatch(jugador -> jugador.getNumCanastas() > 50));
 
 //        2.16 Devolver con un boolean si todos los jugadores del primer equipo añadido han conseguido más de 50 canastas.
-
+        System.out.println();
 
 //        2.17 Devolver un Map<String, List<Equipo>> agrupando los equipos que pertenecen a una misma localidad. Hay un ejemplo similar en la página 172 (6.3 Grouping).
 
