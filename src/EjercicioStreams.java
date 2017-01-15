@@ -77,12 +77,18 @@ public class EjercicioStreams {
                         break;
                     case 7:
                         System.out.println("7. Devolver con una lista todos los jugadores que satisfacen el punto 2.3 ordenados por la fecha de nacimiento de manera descendente.");
-                        lista.stream().filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500).sorted(Comparator.comparing(Jugador::getFechaNacimiento)).forEach(System.out::println);
+                        lista.stream()
+                                .filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500)
+                                .sorted(Comparator.comparing(Jugador::getFechaNacimiento))
+                                .forEach(System.out::println);
 
                         break;
                     case 8:
                         System.out.println("8. Devolver con una lista todos los jugadores que satisfacen el filtro del punto 1.3 ordenados, en primer lugar por número de canastas y en segundo lugar (si tienen el mismo número de canastas) por la fecha de nacimiento.");
-                        lista.stream().filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500).sorted(Comparator.comparing(Jugador::getNumCanastas).thenComparing(Jugador::getFechaNacimiento)).forEach(System.out::println);
+                        lista.stream()
+                                .filter(jugador -> jugador.getNumCanastas() > 200 && jugador.getNumCanastas() < 500)
+                                .sorted(Comparator.comparing(Jugador::getNumCanastas).thenComparing(Jugador::getFechaNacimiento))
+                                .forEach(System.out::println);
 
                         break;
                     case 9:
@@ -102,7 +108,9 @@ public class EjercicioStreams {
                         break;
                     case 12:
                         System.out.println("12. Devolver con una lista todos los jugadores que pertenezcan a equipos cuya localidad sea Barcelona.");
-                        lista.stream().filter(jugador -> jugador.getEquipo().getLocalidad().equalsIgnoreCase("barcelona")).forEach(System.out::println);
+                        lista.stream()
+                                .filter(jugador -> jugador.getEquipo().getLocalidad().equalsIgnoreCase("barcelona"))
+                                .forEach(System.out::println);
 
                         break;
                     case 13:
@@ -122,7 +130,9 @@ public class EjercicioStreams {
                         break;
                     case 16:
                         System.out.println("16. Devolver un Map<String, List<Equipo>> agrupando los equipos que pertenecen a una misma localidad. Hay un ejemplo similar en la página 172 (6.3 Grouping).");
-                        Map<String, List<Equipo>> map = lista.stream().map(Jugador::getEquipo).collect(Collectors.groupingBy(Equipo::getLocalidad));
+                        Map<String, List<Equipo>> map = lista.stream()
+                                .map(Jugador::getEquipo)
+                                .collect(Collectors.groupingBy(Equipo::getLocalidad));
                         System.out.println(map);
                         break;
                     case 17:
