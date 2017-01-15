@@ -14,4 +14,12 @@ public class Equipo {
     public String getLocalidad() {return localidad;}
 
     public void setLocalidad(String localidad) {this.localidad = localidad;}
+
+    @Override
+    public String toString() {
+        return "Equipo{" +
+                "nombre='" + nombre + '\'' +
+                ", localidad='" + localidad + '\'' +
+                '}';
+    }
 }

@@ -29,4 +29,13 @@ public class Jugador {
 
     public void setEquipo(Equipo equipo) {this.equipo = equipo;}
 
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "nombre='" + nombre + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", numCanastas=" + numCanastas +
+                ", equipo=" + equipo +
+                '}';
+    }
 }
