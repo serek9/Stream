@@ -16,15 +16,15 @@ public class EjercicioStreams {
         Equipo A = new Equipo("Equipo A", "Barcelona");
         Equipo B = new Equipo("Equipo B", "Bilbao");
 
-        Jugador j11 = new Jugador("Sergio", LocalDate.of(1996,8,8), 14, A);
-        Jugador j12 = new Jugador("Alberto", LocalDate.of(1996,8,8), 12, A);
-        Jugador j13 = new Jugador("Victor", LocalDate.of(1996,8,8), 8, A);
-        Jugador j14 = new Jugador("Fernando", LocalDate.of(1996,8,8), 20, A);
+        Jugador j11 = new Jugador("Sergio", LocalDate.of(1996,8,8), 140, A);
+        Jugador j12 = new Jugador("Alberto", LocalDate.of(1996,12,4), 120, A);
+        Jugador j13 = new Jugador("Victor", LocalDate.of(1996,3,8), 800, A);
+        Jugador j14 = new Jugador("Fernando", LocalDate.of(1996,4,8), 200, A);
 
-        Jugador j21 = new Jugador("Larry", LocalDate.of(1996,8,8), 11, B);
-        Jugador j22 = new Jugador("Manrike", LocalDate.of(1996,8,8), 7, B);
-        Jugador j23 = new Jugador("Kim", LocalDate.of(1996,8,8), 21, B);
-        Jugador j24 = new Jugador("Obiol", LocalDate.of(1996,8,8), 12, B);
+        Jugador j21 = new Jugador("Larry", LocalDate.of(1996,5,14), 110, B);
+        Jugador j22 = new Jugador("Manrike", LocalDate.of(1996,7,16), 700, B);
+        Jugador j23 = new Jugador("Kim", LocalDate.of(1996,9,18), 210, B);
+        Jugador j24 = new Jugador("Obiol", LocalDate.of(1996,11,20), 120, B);
 
         List<Jugador> lista = new ArrayList<Jugador>();
         lista.add(j11); lista.add(j12); lista.add(j13); lista.add(j14);
